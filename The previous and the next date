@@ -1,0 +1,30 @@
+Two integer numbers are entered - m (month) and n (day).
+Determine:
+the previous date (m, n is not 1 January),
+the next date (m, n is not 31 December).
+Non-distinguishing year.
+Print both dates in m.d format through space.
+Days in months: 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 31, 31, 31, 30, 30, 31.
+
+
+
+m, n = map(int, input().split())
+year = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+if 1<=m<=12 and 1<=n<=year[m-1]:
+    if n>1:
+        m1, n1 = m, n-1
+    else:
+        m1, n1 = m-1, year[m-2]
+    
+    if n<year[m-1]:
+        m2, n2 = m, n+1
+    else:
+        m2, n2 = m+1, 1
+    print(f"{m1:02}.{n1:02} {m2:02}.{n2:02}")
+else:
+    print('wrong month or day')
+ 
+
+
+
+
